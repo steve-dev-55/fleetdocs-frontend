@@ -13,12 +13,15 @@
     "@tanstack/react-query": "*",
     "@tanstack/react-query-devtools": "*",
     "axios": "*",
+    "class-variance-authority": "^0.7.1",
     "lucide-react": "*",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "*",
     "recharts": "*",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.6.0",
     "zod": "*"
   },
   "devDependencies": {
