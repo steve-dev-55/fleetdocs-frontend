@@ -12,6 +12,7 @@
     "@hookform/resolvers": "*",
     "@tanstack/react-query": "*",
     "@tanstack/react-query-devtools": "*",
+    "autoprefixer": "^10.5.0",
     "axios": "*",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "*",
