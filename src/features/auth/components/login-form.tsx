@@ -43,7 +43,11 @@ export function LoginForm() {
   };
 
   const errorResponse = loginMutation.error as AxiosError<ApiError>;
-  const serverErrorMessage = errorResponse?.response?.data?.message || 'Une erreur est survenue lors de la connexion.';
+  // Essayer de l'getMessage depuis différents formats de réponse
+  const serverErrorMessage = errorResponse?.response?.data?.message 
+    || (errorResponse?.response?.data as any)?.error?.message 
+    || errorResponse?.message 
+    || 'Une erreur est survenue lors de la connexion.';
 
   return (
     <div className="w-full max-w-md space-y-6 rounded-xl bg-white p-8 shadow-md border border-slate-100 dark:bg-slate-800 dark:border-slate-700">
