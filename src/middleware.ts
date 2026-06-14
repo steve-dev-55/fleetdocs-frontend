@@ -12,8 +12,11 @@ export function middleware(request: NextRequest) {
                      pathname.startsWith('/forgot-password') || 
                      pathname.startsWith('/reset-password');
 
+  // Pages publiques (pas besoin d'authentification)
+  const isPublicPage = isAuthPage || pathname === '/' || pathname.startsWith('/login');
+
   // 1. L'utilisateur n'est pas connecté et tente d'accéder à une page privée
-  if (!token && !isAuthPage) {
+  if (!token && !isPublicPage) {
     const loginUrl = new URL('/login', request.url);
     // Optionnel : conserver l'URL cible pour redirection post-login
     loginUrl.searchParams.set('callbackUrl', pathname);
@@ -21,7 +24,7 @@ export function middleware(request: NextRequest) {
   }
 
   // 2. L'utilisateur est déjà connecté et tente d'accéder aux pages d'authentification
-  if (token && isAuthPage) {
+  if (token && isAuthPage && pathname !== '/') {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
