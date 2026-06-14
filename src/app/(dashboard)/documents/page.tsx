@@ -52,7 +52,7 @@ export default function DocumentsHubPage() {
                   <TableCell className="text-right"><Skeleton className="h-8 w-10 ml-auto" /></TableCell>
                 </TableRow>
               ))
-            ) : data?.data.map((doc) => (
+            ) : data?.data.map((doc: { id: string; status: DocumentStatus; expiration_date: string; created_at: string }) => (
               <TableRow key={doc.id}>
                 <TableCell className="font-medium flex items-center gap-2">
                   <FileText className="w-4 h-4 text-slate-400" />
