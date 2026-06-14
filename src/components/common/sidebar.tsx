@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { NAVIGATION_ITEMS } from '@/config/navigation';
 import { Role } from '@/types/auth';
+import { FileText } from 'lucide-react';
 
 interface SidebarProps {
   role: Role;
