@@ -39,15 +39,13 @@ export function Topbar({ userDisplayName }: { userDisplayName: string }) {
         </Button>
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 pl-2">
-              <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400">
-                <User size={16} />
-              </div>
-              <span className="text-sm font-medium hidden sm:inline-block">{userDisplayName}</span>
-            </Button>
+          <DropdownMenuTrigger className="flex items-center gap-2 pl-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1">
+            <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400">
+              <User size={16} />
+            </div>
+            <span className="text-sm font-medium hidden sm:inline-block">{userDisplayName}</span>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
+          <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>Mon Compte</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Mon Profil</DropdownMenuItem>
