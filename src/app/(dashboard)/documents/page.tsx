@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { documentsApi } from '@/features/documents/services/documents.api';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { DOCUMENT_STATUS_COLORS } from '@/lib/constants';
-import { DocumentStatus } from '@/types/documents';
+import { DocumentStatus, Document as AppDocument } from '@/types/documents';
 import { cn, formatDate } from '@/lib/utils';
 import { FileText, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -52,7 +52,7 @@ export default function DocumentsHubPage() {
                   <TableCell className="text-right"><Skeleton className="h-8 w-10 ml-auto" /></TableCell>
                 </TableRow>
               ))
-            ) : data?.data.map((doc: { id: string; status: DocumentStatus; expiration_date: string; created_at: string }) => (
+            ) : data?.data.map((doc: AppDocument) => (
               <TableRow key={doc.id}>
                 <TableCell className="font-medium flex items-center gap-2">
                   <FileText className="w-4 h-4 text-slate-400" />
@@ -63,7 +63,7 @@ export default function DocumentsHubPage() {
                     {STATUS_LABELS[doc.status]}
                   </span>
                 </TableCell>
-                <TableCell>{formatDate(doc.expiration_date)}</TableCell>
+                <TableCell>{formatDate(doc.expiration_date ?? '')}</TableCell>
                 <TableCell>{formatDate(doc.created_at)}</TableCell>
                 <TableCell className="text-right">
                   <Button variant="ghost" size="icon">

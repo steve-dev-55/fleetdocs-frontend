@@ -1,5 +1,6 @@
 import { apiClient } from '@/lib/api-client';
-import { Document, PaginatedResponse } from '@/types/documents';
+import { Document } from '@/types/documents';
+import { PaginatedResponse } from '@/types';
 
 export const documentsApi = {
   getDocuments: async (params?: { page?: number; status?: string }): Promise<PaginatedResponse<Document>> => {
