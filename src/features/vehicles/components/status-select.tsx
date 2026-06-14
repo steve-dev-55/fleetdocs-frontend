@@ -27,7 +27,7 @@ export function StatusSelect({ vehicleId, currentStatus }: { vehicleId: string, 
   return (
     <Select 
       value={currentStatus} 
-      onValueChange={(value) => mutation.mutate(value as VehicleStatus)}
+      onChange={(e) => mutation.mutate(e.target.value as VehicleStatus)}
       disabled={mutation.isPending}
     >
       <SelectTrigger className="w-[150px] h-8 text-xs">
