@@ -81,7 +81,7 @@ export default function OcrValidationPage({ params }: { params: Promise<{ job_id
             <div className="flex-1 space-y-5">
               <h3 className="text-sm font-medium text-slate-500 mb-6 uppercase tracking-wider">Données extraites</h3>
               
-              {Object.entries(job.extracted_fields).map(([key, field]) => (
+              {Object.entries(job.extracted_fields ?? {}).map(([key, field]) => (
                 <div key={key} className="space-y-1.5">
                   <div className="flex justify-between items-center">
                     <label className="text-sm font-semibold capitalize text-slate-700 dark:text-slate-300">
